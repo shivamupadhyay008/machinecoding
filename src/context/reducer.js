@@ -16,7 +16,11 @@ export function reducer(state, action) {
       } else {
         newlater = [...state.later, action.payload];
       }
-      return { ...state, later: newlater };
+      return {
+        ...state,
+        cart: state.cart.filter((item) => item.id != action.payload.id),
+        later: newlater,
+      };
     case "REMOVE_CART":
       return {
         ...state,
