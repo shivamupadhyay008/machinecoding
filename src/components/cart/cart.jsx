@@ -12,7 +12,7 @@ export function Cart() {
   } )
   return (
     <div>
-      <div style={{margin:"2rem"}}>
+      <div style={{ margin: "2rem" }}>
         <Box fontWeight="bold " fontSize="1.4rem" textAlign="center">
           {showCart === "cart"
             ? `CART ${state?.cart?.length}`
@@ -32,7 +32,7 @@ export function Cart() {
         </Box>
       </div>
       <div>
-        {showCart === "cart" ? (
+        {showCart === "cart" && state.cart.length > 0 ? (
           <div>
             <Flex justifyContent="center">
               <Box>
@@ -41,7 +41,7 @@ export function Cart() {
                   discount 10%
                 </Box>
                 <Box>price {Math.floor(total)}</Box>
-                <Box fontWeight="bold"  >total price {Math.floor(total)}</Box>
+                <Box fontWeight="bold">total price {Math.floor(total)}</Box>
               </Box>
             </Flex>
             <Flex flexWrap="wrap" flex="50%">
