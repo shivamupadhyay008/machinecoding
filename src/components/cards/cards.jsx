@@ -1,7 +1,7 @@
 import { Box, Image, Flex, Button } from "@chakra-ui/react";
 import { useCart } from "../../context/cartcontext";
 export function Listcard({product}) {
-  const {dispatch}=useCart()
+  const {state,dispatch}=useCart()
   return (
     <Box w="25%" border="1px solid black">
       <Flex justifyContent="center" flexDirection="column">
@@ -18,7 +18,7 @@ export function Listcard({product}) {
             onClick={() => dispatch({ type: "ADD_TO_CART", payload: product })}
             margin="1rem"
           >
-            add to cart
+            {state.cart.some((item)=>item.id===product.id)?"added to cart":"add to cart"}
           </Button>
         </Box>
       </Flex>
